@@ -35,14 +35,16 @@
     </label>
     <label>
         Mon identifiant * <span>(pour la traçabilité de aliments)</span>
-        <input id="identifiant" name="identifiant"> <br>
+        <input id="identifiant" name="identifiant" type="text"> <br>
     </label>
     <label><br>
         <input id="plat" name="plat" type="checkbox">
         Svp remettre mon plat dans le réfrigérateur <br>
     </label>
     <br>
-    <input type="submit" value="Soumettre">
+    <!-- Remplacer le submit par un button pour ne pas recharger la page.
+        On n'utilisera pas non plus l'URL dans ce cas là. -->
+    <input id="soumettre" type="button" value="Soumettre">
     <input type="reset" value="Annuler">
 </form>
 <div id="frigo"></div>
