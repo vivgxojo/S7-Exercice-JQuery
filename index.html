@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frigo communautaire</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<h1>J'ai déposé un nouvel item dan le réfrigérateur communautaire : </h1>
+<form action="index.html" method="get">
+    <label>
+        Courte description (max. 100 caractères) * <br>
+        <input id="desc" name="desc" type="text" maxlength="100"> <br>
+    </label>
+    <label><br>
+        Catégorie * <br>
+        <select id="cat" name="cat">
+            <option value="dessert">Dessert</option>
+            <option value="repas">Repas principal</option>
+            <option value="entree">Entrée</option>
+        </select> <br>
+    </label>
+    <label><br>
+        Portions disponibles *
+        <input id="portions" name="portions" type="number"> <br>
+        <span>(min. 2 sauf les desserts)</span><br>
+    </label>
+    <label>
+        Commentaires <span>(ex. instructions pour réchauffer)</span> <br>
+        <textarea id="commentaire" name="commentaire"></textarea> <br>
+    </label>
+    <label>
+        Mon identifiant * <span>(pour la traçabilité de aliments)</span>
+        <input id="identifiant" name="identifiant"> <br>
+    </label>
+    <label><br>
+        <input id="plat" name="plat" type="checkbox">
+        Svp remettre mon plat dans le réfrigérateur <br>
+    </label>
+    <br>
+    <input type="submit" value="Soumettre">
+    <input type="reset" value="Annuler">
+</form>
+<div id="frigo"></div>
+</body>
+</html>

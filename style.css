@@ -1,0 +1,28 @@
+#portions{
+    width: 2em;
+}
+
+span{
+    display: block;
+}
+
+#frigo{
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 300px;
+    height: 500px;
+    background-image: url("refrigerator.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 30px 50px;
+}
+
+p{
+    background-image: url("note.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 5px;
+    width: 75px;
+    height: 50px;
+}
