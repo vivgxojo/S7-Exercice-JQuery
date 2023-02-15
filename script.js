@@ -12,8 +12,11 @@ $(document).ready(function (){
     $compteur = sessionStorage.getItem("compteur")
     if ($compteur > 0){
         for ($i = 0; $i < $compteur; $i++){
-            $item = sessionStorage.getItem("item"+$compteur);
-            $("#frigo").append("<p>"+$item+"</p>");
+            $ident = "item"+(+$i + 1);
+            $item = sessionStorage.getItem($ident);
+            if($item !== null){
+                $("#frigo").append("<p id="+$ident+">"+$item+"</p>");
+            }
         }
     }
 
@@ -21,13 +24,25 @@ $(document).ready(function (){
    $urldata = location.search.substring(1);
    if($urldata !== "" && $urldata.split('&')[0].split('=')[0] === "desc"){
 
-       // ajouter la description sur un post-it
        $desc = $urldata.split('&')[0].split('=')[1];
-       $("#frigo").append("<p>"+$desc+"</p>");
 
        // ajouter les items à la session pour les conserver
        $compteur = +$compteur + 1;
        sessionStorage.setItem("compteur", $compteur);
        sessionStorage.setItem("item"+$compteur, $desc);
+
+       // ajouter la description sur un post-it
+       $ident = "item"+$compteur;
+       $("#frigo").append("<p id="+$ident+">"+$desc+"</p>");
+
    }
+
+   // cliquer sur les post-it va les effacer : manger les items.
+    $("p").click(function (){
+        $key = $(this).attr("id")
+        sessionStorage.removeItem($key);
+        //$compteur = +$compteur - 1;
+        //sessionStorage.setItem("compteur", $compteur);
+        $(this).hide(500);
+    });
 });
