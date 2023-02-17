@@ -3,6 +3,63 @@ $(document).ready(function (){
     // Validation à compléter :
     // L'idéale est de gérer les évenement change ou autre de chaque éléments
     // inputs du formulaire et d'activer/désactiver le bouton Soumettre.
+    $descValide = false;
+    $portionValide = false;
+    $idValide = false;
+
+    $("#desc").keyup(function (){
+        //Valider la description
+        $desc = $("#desc").val();
+        if($desc.length > 100 || $desc.length < 20) {
+            $descValide = false;
+        }
+        else {
+            $descValide = true;
+        }
+        GererBouton();
+    });
+
+    $("#portions").blur(function (){
+        //Valider portions
+        $portions = $("#portions").val();
+        $categorie = $("#cat").val();
+        $min = 2;
+        if ($categorie === "dessert"){
+            $min = 1;
+        }
+        if ($portions < $min || $portions > 8){
+            $portionValide = false;
+        }
+        else {
+            $portionValide = true;
+        }
+        GererBouton();
+    });
+
+    $("#identifiant").blur(function () {
+        //Valider identifiant
+        $identifiant = $("#identifiant").val();
+        $regex = new RegExp("^#[a-z]{4,10}[0-9]{4}$");
+        // Valider l'identifiant à l'aide d'une expression régulière
+        if ($regex.test($identifiant)) {
+            $idValide = true;
+        } else {
+            $idValide = false;
+        }
+        GererBouton();
+    });
+
+    //Décider si on active ou désactive le bouton soumettre
+    function GererBouton() {
+        if($descValide && $portionValide && $idValide){
+            $("#soumettre").removeAttr("disabled");
+        }
+        else {
+            $("#soumettre").attr("disabled", "disabled");
+        }
+    }
+
+
 
     // gestionnaire d'évènement du bouton
     $("#soumettre").click(function (){
