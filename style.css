@@ -1,24 +1,14 @@
-#portions{
-    width: 2em;
-}
-
-span{
-    display: block;
-}
-
+/* On a quand même besoin du css pour gérer le frigo et les post-it qui ont des images fixes en background */
 #frigo{
-    position: absolute;
-    right: 0;
-    top: 50px;
-    width: 300px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
     background-image: url("refrigerator.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    padding: 30px 50px;
+    padding: 50px 50px;
 }
 
-p{
+.postIt{
     background-image: url("note.png");
     background-size: 280px 50px;
     background-repeat: no-repeat;

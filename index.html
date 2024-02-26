@@ -7,46 +7,47 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </head>
-<body>
+<body class="container-xl row">
 <h1>J'ai déposé un nouvel item dan le réfrigérateur communautaire : </h1>
-<form action="index.html" method="get">
-    <label>
-        Courte description (max. 100 caractères) * <br>
-        <input id="desc" name="desc" type="text" maxlength="100"> <br>
+<form class="col-6">
+    <label class="row m-3">
+        Courte description (max. 100 caractères) *
+        <input class="form-control" id="desc" name="desc" type="text" maxlength="100">
     </label>
-    <label><br>
-        Catégorie * <br>
-        <select id="cat" name="cat">
+    <label class="row m-3">
+        Catégorie *
+        <select class="form-control" id="cat" name="cat">
             <option value="dessert">Dessert</option>
             <option value="repas">Repas principal</option>
             <option value="entree">Entrée</option>
-        </select> <br>
+        </select>
     </label>
-    <label><br>
+    <label class="row m-3">
         Portions disponibles *
-        <input id="portions" name="portions" type="number"> <br>
-        <span>(min. 2 sauf les desserts)</span><br>
+        <input class="form-control" id="portions" name="portions" type="number">
+        <span>(min. 2 sauf les desserts)</span>
     </label>
-    <label>
-        Commentaires <span>(ex. instructions pour réchauffer)</span> <br>
-        <textarea id="commentaire" name="commentaire"></textarea> <br>
+    <label class="row m-3">
+        Commentaires <span>(ex. instructions pour réchauffer)</span>
+        <textarea class="form-control" id="commentaire" name="commentaire"></textarea>
     </label>
-    <label>
+    <label class="row m-3">
         Mon identifiant * <span>(pour la traçabilité de aliments)</span>
-        <input id="identifiant" name="identifiant" type="text"> <br>
+        <input class="form-control" id="identifiant" name="identifiant" type="text">
     </label>
-    <label><br>
-        <input id="plat" name="plat" type="checkbox">
-        Svp remettre mon plat dans le réfrigérateur <br>
+    <label class="row m-3">
+        <input class="form-check-input" id="plat" name="plat" type="checkbox">
+        Svp remettre mon plat dans le réfrigérateur
     </label>
-    <br>
-    <!-- Remplacer le submit par un button pour ne pas recharger la page.
-        On n'utilisera pas non plus l'URL dans ce cas là. -->
-    <input id="soumettre" type="button" value="Soumettre" disabled>
-    <input type="reset" value="Annuler">
+    <div class="row m-3">
+        <input class="btn btn-primary col" id="soumettre" type="submit" value="Soumettre" disabled>
+        <input class="btn btn-danger col" type="reset" value="Annuler">
+    </div>
 </form>
-<div id="frigo"></div>
+<div class="col-5" id="frigo"></div>
 </body>
 </html>
